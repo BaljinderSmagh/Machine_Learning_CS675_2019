@@ -10,7 +10,7 @@ import sys
 import numpy as np
 import random
 
-class LeastSquare:
+class HingeLoss:
     
     def __init__(self,data,label,test):
         self.data=data
@@ -127,7 +127,7 @@ if __name__ =='__main__':
     testLabels=np.loadtxt(sys.argv[3])
     
     #object declaration
-    model=LeastSquare(trainData,trainLabels,testLabels)
+    model=HingeLoss(trainData,trainLabels,testLabels)
     
     
     model.train()
