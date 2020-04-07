@@ -5,7 +5,7 @@ Created on Fri Mar 13 00:01:13 2020
 
 @author: baljindersmagh
 """
-
+import sys
 import numpy as np
 
 class NaiveBayes:
@@ -108,13 +108,13 @@ class NaiveBayes:
 if __name__ =='__main__':
     
     
-    trainData=np.loadtxt('breast_cancer.data')
-    #trainData=np.loadtxt('testBayes.data')
+    trainData=np.loadtxt(sys.argv[1])
+   
 
-    trainLabels=np.loadtxt('breast_cancer.trainlabels.0')
-    #trainLabels=np.loadtxt('testBayes.trainlabels.0')
+    trainLabels=np.loadtxt(sys.argv[2])
+    
     trainLabels=trainLabels[trainLabels[:,1].argsort()]
-    testLabels=np.loadtxt('breast_cancer.labels')
+    testLabels=np.loadtxt(sys.argv[3])
     #object declaration
     model=NaiveBayes(trainData,trainLabels,testLabels)
     
