@@ -5,7 +5,7 @@ Created on Tue Mar 17 16:42:29 2020
 
 @author: baljindersmagh
 """
-
+import sys
 import numpy as np
 import math
 
@@ -81,19 +81,15 @@ class KNN:
     
 
 if __name__ =='__main__':
-    trainData=np.loadtxt('breast_cancer.data')
-    #trainData=np.loadtxt('testBayes.data')
-
-    trainLabels=np.loadtxt('breast_cancer.trainlabels.0')
+    trainData=np.loadtxt(sys.argv[1])
     
-    #trainData=np.loadtxt('train.txt')
-    #trainData=np.loadtxt('testBayes.data')
 
-    #trainLabels=np.loadtxt('labels.txt')
-    #trainLabels=np.loadtxt('testBayes.trainlabels.0')
+    trainLabels=np.loadtxt(sys.argv[2])
+    
+    
     trainLabels=trainLabels[trainLabels[:,1].argsort()]
     
-    testLabels=np.loadtxt('breast_cancer.labels')
+    testLabels=np.loadtxt(sys.argv[3])
     #object declaration
     model=KNN(trainData,trainLabels,testLabels,k=20 )
     
