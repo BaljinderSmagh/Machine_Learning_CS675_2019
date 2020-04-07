@@ -6,7 +6,7 @@ Created on Thu Mar 19 21:37:46 2020
 @author: baljindersmagh
 """
 
-
+import sys
 import numpy as np
 import random
 import math
@@ -147,15 +147,15 @@ class LeastSquare:
 
 if __name__ =='__main__':
     
-    trainData=np.loadtxt('climate.data')
-    #trainData=np.loadtxt('Ldata.txt')
+    trainData=np.loadtxt(sys.argv[1])
+   
     
-    trainLabels=np.loadtxt('climate.trainlabels.0')
-    #trainLabels=np.loadtxt('Llables.txt')
+    trainLabels=np.loadtxt(sys.argv[2])
+    
     trainLabels=trainLabels[trainLabels[:,1].argsort()]
    
-    testLabels=np.loadtxt('climate.labels')
-    #testLabels=np.loadtxt('Ltest.txt')
+    testLabels=np.loadtxt(sys.argv[3])
+    
   
     #object declaration
     model=LeastSquare(trainData,trainLabels,testLabels)
