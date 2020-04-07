@@ -5,7 +5,7 @@ Created on Wed Mar 18 15:33:47 2020
 
 @author: baljindersmagh
 """
-
+import sys
 import numpy as np
 import random
 
@@ -111,16 +111,14 @@ class LeastSquare:
         
 
 if __name__ =='__main__':
-    #trainData=np.loadtxt('breast_cancer.data')
-    #trainData=np.loadtxt('testLeastSquares.data')
-    trainData=np.loadtxt('ionosphere.data')
-    #trainLabels=np.loadtxt('breast_cancer.trainlabels.0')
-    #trainLabels=np.loadtxt('testLeastSquares.trainlabels.0')
-    trainLabels=np.loadtxt('ionosphere.trainlabels.0')
+    
+    trainData=np.loadtxt(sys.argv[1])
+    
+    trainLabels=np.loadtxt(sys.argv[2])
     trainLabels=trainLabels[trainLabels[:,1].argsort()]
-    #testLabels=np.loadtxt('testleastsquarelabels.txt')
-    testLabels=np.loadtxt('ionosphere.labels')
-    #testLabels=np.loadtxt('breast_cancer.labels')
+    
+    testLabels=np.loadtxt(sys.argv[3])
+    
     #object declaration
     model=LeastSquare(trainData,trainLabels,testLabels)
     
